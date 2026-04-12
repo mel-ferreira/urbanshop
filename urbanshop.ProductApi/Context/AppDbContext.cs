@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace urbanshop.ProductApi.Context;
-public class ProdutoDbContext : DbContext
+public class AppDbContext : DbContext
 {
-    public ProdutoDbContext(DbContextOptions<ProdutoDbContext> options) : base(options)
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
         
     }

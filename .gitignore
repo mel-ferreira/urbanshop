@@ -26,3 +26,6 @@ packages/
 
 TestResults/
 coverage/
+.fake
+
+.vs/
