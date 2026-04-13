@@ -1,5 +1,7 @@
 using urbanshop.ProductApi.Context;
 using Microsoft.EntityFrameworkCore;
+using urbanshop.ProductApi.Repositorio;
+using urbanshop.ProductApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,13 @@ builder.Services.AddSwaggerGen();
 var mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddScoped<ICategoriaRepositorio, CategoriaRepositorio>();
+builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+builder.Services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
+builder.Services.AddScoped<IProdutoService, ProdutoService>();
+
+
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(
@@ -31,6 +40,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.MapControllers();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 
