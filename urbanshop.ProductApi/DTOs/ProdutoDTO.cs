@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using urbanshop.ProductApi.Models;
 
@@ -27,6 +28,7 @@ public class ProdutoDTO
     [Range(1,999)]
     public long  Estoque { get; set; }
     public string? ImagemURL{ get; set; }
+    [JsonIgnore]
     public Categoria? Categoria { get; set; }
     public int CategoriaId { get; set; }
 }
